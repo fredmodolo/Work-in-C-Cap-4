@@ -1,404 +1,772 @@
-# Frederico Modolo
-## Lista de exercícios em C
-
-This repository contains the exercises made for the C Programming discipline.
-
-## Exercícios
-
-### Exercício 1:
+# Frederico Modolo Esteves
+Lista Exercícios em C -  Capítulo 4
+## Exercício 01:
 ```c
 #include <stdio.h>
 int main () {
-    float n1, n2, resultado;
-    printf("Digite dois números: ");
+    float n1, n2, n3, n4, md;
+    printf("Digite a nota da P1: ");
     scanf("%f", &n1);
+    printf("Digite a nota da P2: ");
     scanf("%f", &n2);
-    resultado = (n1 - n2);
-    printf("O resultado é de: %0.1f\n", resultado);
-    return 0;
-}
-```
-
-### Exercício 2:
-```c
- #include <stdio.h>
-int main () {
-    float n1, n2, n3, resultado;
-    printf("Digite 3 números: ");
-    scanf("%f", &n1);
-    scanf("%f", &n2);
+    printf("Digite a nota da P3: ");
     scanf("%f", &n3);
-    resultado = (n1*n2*n3);
-    printf("O resultado é de: %0.1f\n", resultado);
-    return 0;
+    printf("Digite a nota da P4: ");
+    scanf("%f", &n4);
+    md = (n1+n2+n3+n4)/4;
+    if (md>=7) {
+        printf("Você foi aprovado! Média: %0.1f",md);
+    }
+    else {
+        printf("Você foi reprovado! Média: %0.1f",md);
+        return 0;
+    }
 }
 ```
 
-### Exercício 3:
+## Exercício 2:
+```c
+#include <stdio.h>
+int main () {
+     float n1, n2, md;
+   printf("\nCalculo de Medias");
+   printf("\n----------------");
+   printf("\nDigite a nota da prova P1:");
+   scanf("%f",&n1);
+   printf("\nDigite a nota da prova P2:");
+   scanf("%f",&n2);
+   md = (n1 + n2)/2;
+   if (md >=0 && md<3){
+      printf("\nAluno esta reprovado com media = %0.1f",md);
+   }
+   if (md >=3 && md<7){
+      printf("\nAluno esta de Exame com media = %0.1f",md);
+   }
+    if (md >=7 && md<=10){
+    printf("\nAluno esta aprovado com media = %0.1f",md);
+ }
+   return 0;
+}
+```
+
+## Exercício 3:
+```c
+#include <stdio.h>
+int main () {
+ float n1, n2;
+ printf("Digite dois números: ");
+ scanf("%f", &n1);   
+ scanf("%f", &n2);
+ if (n1>n2) {
+ printf("\nO menor número é o %0.2f", n2);
+ }
+ else if (n1<n2) {
+ printf("\nO menor número é o %0.2f", n1);
+ }
+ else {
+   printf("\nOs números são iguais");
+ }
+  return 0;
+}
+```
+
+## Exercício 4:
+```c
+#include <stdio.h>
+int main () {
+    float n1, n2, n3;
+    printf("Digite três números: ");
+ scanf("%f", &n1);   
+ scanf("%f", &n2);
+ scanf("%f", &n3);
+ if (n1>n2,n3) {
+    printf("O maior número é o %0.2f", n1);
+ }
+ else if (n2>n1,n3) {
+    printf("O maior número é o %0.2f", n2);
+ }
+ else if (n3>n1, n2)
+ {
+    printf("O maior número é o %0.2f", n3);
+ }
+ return 0;
+}
+```
+
+## Exercício 5:
 ```c
 #include <stdio.h>
 int main () {
     float n1, n2, resultado;
-    printf("Digite 2 número diferentes de 0: ");
+    int opcao;
+    printf("\nPrograma Calculadora");
+    printf("\n--------------------");
+    printf("\nEscolha uma opção");
+    printf("\n1- Média");
+    printf("\n2- Diferença");
+    printf("\n3- Produto");
+    printf("\n4- Divisão");
+    scanf("%d", &opcao);
+    printf("Escolha dois números: ");
     scanf("%f", &n1);
     scanf("%f", &n2);
-    resultado = n1/n2;
-        printf("O resultado é de: %0.2f\n", resultado);
-        if (n1 == 0 || n2 == 0) {
-        printf("Opção inválida!");
+    if (opcao == 1) 
+    {
+    resultado = (n1 + n2) / 2;
+    printf("\nO resultado é: %0.2f", resultado);
+    }
+    if (opcao == 2)
+    {
+    if (n1>n2)
+    {
+        resultado = (n1 - n2);
+   }
+   if (n2 > n1){
+       resultado = (n2 - n1);
+   }
+   if (n1 == n2){
+   resultado = (n2 - n1);
+   }
+   if (n2 == 0) {
+printf("Erro: Divisão por zero não permitida!\n");
+}
+   printf("\nDiferenca = %0.2f",resultado); 
+}
+if (opcao == 3)
+{
+    resultado = n1 * n2;
+    printf("\nO resultado é: %0.2f", resultado);
+}
+if (opcao == 4)
+{
+    resultado = n1 / n2;
+    printf("\nO resultado é: %0.2f", resultado);
+}
+else if (opcao > 4) {
+    printf("\nOpção inválida!");
+}
+return 0;
+}
+```
+
+## Exercício 6:
+```c
+#include <stdio.h>
+#include <math.h>
+int main () {
+    float n1,n2, resultado, raiz1, raiz2;
+    int opcao;
+    printf("\nEscolha opção: ");
+    printf("\n1- Primeiro número elevado ao segundo");
+    printf("\n2- Raiz quadrada");
+    printf("\n3- Raiz cúbica");
+    scanf("%d", &opcao);
+    printf("Digite dois números");
+    scanf("%f", &n1);
+    scanf("%f", &n2);
+    if (opcao == 1)
+    {
+        resultado = pow(n1,n2);
+        printf("Resultado: %.2f\n", resultado);
+    }
+    else if (opcao == 2)
+    {
+        raiz1 = sqrt(n1);
+        raiz2 = sqrt(n2);
+        printf("Raiz quadrada de %.2f = %.2f\n", n1, raiz1);
+        printf("Raiz quadrada de %.2f = %.2f\n", n2, raiz2);
+    }
+    else if (opcao == 3)
+    {
+        raiz1 = cbrt(n1);
+        raiz2 = cbrt(n2);
+        printf("Raiz cúbica de %.2f = %.2f\n", n1, raiz1);
+        printf("Raiz cúbica de %.2f = %.2f\n", n2, raiz2);
+    }
+    else {
+        printf("Opção inválida");
     }
     return 0;
 }
 ```
 
-### Exercício 4:
+## Exercício 7:
 ```c
 #include <stdio.h>
 int main () {
-    float p1, p2, media;
-    printf("Digite a nota da P1: ");
-    scanf("%f", &p1);
-    printf("Digite a nota da P2: ");
-    scanf("%f", &p2);
-    media = ((p1 * 2) + (p2 * 3)) / 5;
-    printf("A média final é de: %.2f\n", media);
+    float salario, resultado;
+    printf("Digite seu salário: ");
+    scanf("%f", &salario);
+    if (salario < 500)
+    {
+        resultado = salario + (0.3*salario);
+        printf("O seu salario com aumento é de: %.2f", resultado);
+    }
+    else if (salario > 500)
+    {
+        printf("Você não tem direito a aumento.");
+    }
     return 0;
 }
 ```
 
-### Exercício 5:
+## Exercício 8:
+```c
+#include <stdio.h>
+int main () {
+    float salario, resultado;
+    printf("Digite o salário: ");
+    scanf("%f", &salario);
+    if (salario <= 300)
+    {
+        resultado = salario + (salario*0.35);
+        printf("O salário com aumento é de: %.2f", resultado);
+    }
+    else if (salario > 300)
+    {
+        resultado = salario + (salario*0.15);
+        printf("O salário com aumento é de: %.2f", resultado);
+    }
+    return 0;
+}
+```
+
+## Exercício 9:
+```c
+#include <stdio.h>
+int main () {
+    float saldo, aumento;
+    printf("Digite o saldo médio: ");
+    scanf("%f", &saldo);
+    if (saldo > 400)
+    {
+        aumento = saldo + (saldo*0.3);
+        printf("O resultado é de: %.2f, e o crédito é de %.2f", aumento, saldo*0.3);
+    }
+    else if (saldo <= 400 && saldo > 300)
+    {
+        aumento = saldo + (saldo*0.25);
+        printf("O resultado é de: %.2f, e o crédito é de %.2f", aumento, saldo*0.25);
+    }
+    else if (saldo <= 300 && saldo > 200)
+    {
+        aumento = saldo + (saldo*0.2);
+        printf("O resultado é de: %.2f, e o crédito é de %.2f", aumento, saldo*0.2);
+    }
+    else if (saldo <= 200)
+    {
+        aumento = saldo + (saldo*0.1);
+        printf("O resultado é de: %.2f, e o crédito é de %.2f", aumento, saldo*0.1);
+    }
+    return 0;
+}
+```
+
+## Exercício 10:
+```c
+#include <stdio.h>
+int main () {
+    float custofabrica, distribuidor, imposto, valorfinal;
+    printf("Digite o custo de fabrica: ");
+    scanf("%f", &custofabrica);
+    if (custofabrica <= 12000)
+    {
+        valorfinal = custofabrica + (custofabrica*0.05);
+        printf("O valor final do carro é de: %.2f\n", valorfinal);
+    }
+    else if (12000 < custofabrica && custofabrica < 25000 )
+    {
+        valorfinal = custofabrica + (custofabrica*0.1) + (custofabrica*0.15);
+        printf("O valor final do carro é de: %.2f\n", valorfinal);
+    }
+    else if (custofabrica > 25000)
+    {
+        valorfinal = custofabrica + (custofabrica*0.15) + (custofabrica*0.2);
+        printf("O valor final do carro é de: %.2f\n", valorfinal);
+    }
+    return 0;
+}
+```
+
+## Exercício 11:
+```c
+#include <stdio.h>
+int main () {
+    float salario, salariofinal;
+    printf("Digite o salário: ");
+    scanf("%f", &salario);
+    if (salario <= 300)
+    {
+        salariofinal = salario + (salario*0.15);
+        printf("O salário final é de: %.2f", salariofinal);
+    }
+    else if (salario > 300 && salario < 600)
+    {
+        salariofinal = salario + (salario*0.1);
+        printf("O salário final é de: %.2f", salariofinal);
+    }
+    else if (salario >= 600 && salario <= 900)
+    {
+        salariofinal = salario + (salario*0.05);
+        printf("O salário final é de: %.2f", salariofinal);
+    }
+    else if (salario > 900)
+    {
+        salariofinal = salario;
+        printf("O salário final é de: %.2f", salariofinal);
+    }
+    return 0;
+}
+```
+
+## Exercício 12:
+```c
+#include <stdio.h>
+int main () {
+    float salariobruto, aumento, salariofinal;
+    printf("Digite o salário bruto: ");
+    scanf("%f", &salariobruto);
+    if (salariobruto <= 350)
+    {
+        aumento = 100;
+        salariofinal = salariobruto + aumento - (salariobruto*0.07);
+        printf("O salário final será de: %.2f", salariofinal);
+    }
+    else if (salariobruto > 350 && salariobruto < 600)
+    {
+        aumento = 75;
+        salariofinal = salariobruto + aumento - (salariobruto*0.07);
+        printf("O salário final será de: %.2f", salariofinal);
+    }
+    else if (salariobruto >= 600 && salariobruto <= 900)
+    {
+        aumento = 50;
+        salariofinal = salariobruto + aumento - (salariobruto*0.07);
+        printf("O salário final será de: %.2f", salariofinal);
+    }
+    else if (salariobruto > 900)
+    {
+        aumento = 35;
+        salariofinal = salariobruto + aumento - (salariobruto*0.07);
+        printf("O salário final será de: %.2f", salariofinal);
+    }
+    return 0;
+}
+```
+
+## Exercício 13:
+```c
+#include <stdio.h>
+int main () {
+    float preco, novopreco;
+    printf("Digite o preço do produto em reais: ");
+    scanf("%f", &preco);
+    if (preco <= 50)
+    {
+        novopreco = preco + (preco*0.05);
+        printf("O novo preço do produto é de: %.2f reais\n", novopreco);
+    }
+    else if (preco > 50 && preco < 100)
+    {
+        novopreco = preco + (preco*0.1);
+        printf("O novo preço do produto é de: %.2f reais\n", novopreco);
+    }
+    else if (preco >= 100)
+    {
+        novopreco = preco + (preco*0.15);
+        printf("O novo preço do produto é de: %.2f reais\n", novopreco);
+    }
+    if (novopreco <= 80)
+    {
+        printf("\nClassificação: Barato");
+    }
+    else if (novopreco > 80 && novopreco < 120)
+    {
+        printf("\nClassificação: Normal");
+    }
+    else if (novopreco > 120 && novopreco < 200)
+    {
+        printf("\nClassificação: Caro");
+    }
+    else if (novopreco >= 200)
+    {
+        printf("\nClassificação: Muito Caro");
+    }
+    return 0;
+}
+```
+
+## Exercício 14:
+```c
+#include <stdio.h>
+int main () {
+    float salario, novosalario;
+    printf("Digite o salário do funcionário: ");
+    scanf("%f", &salario);
+    if (salario <= 300)
+    {
+        novosalario = salario + (salario*0.5);
+        printf("O novo salário será de: %.2f", novosalario);
+    }
+    else if (salario > 300 && salario <= 500)
+    {
+        novosalario = salario + (salario*0.4);
+        printf("O novo salário será de: %.2f", novosalario);
+    }
+    else if (salario > 500 && salario <= 700)
+    {
+        novosalario = salario + (salario*0.3);
+        printf("O novo salário será de: %.2f", novosalario);
+    }
+    else if (salario > 700 && salario <= 800)
+    {
+        novosalario = salario + (salario*0.2);
+        printf("O novo salário será de: %.2f", novosalario);
+    }
+    else if (salario > 800 && salario <= 1000)
+    {
+        novosalario = salario + (salario*0.1);
+        printf("O novo salário será de: %.2f", novosalario);
+    }
+    else if (salario > 1000)
+    {
+        novosalario = salario + (salario*0.05);
+        printf("O novo salário será de: %.2f", novosalario);
+    }
+    return 0;
+}
+```
+
+## Exercício 15:
+```c
+#include <stdio.h>
+int main () {
+    float valor, resultado;
+    int investimento;
+    printf("Agência Bancária -  Escolha seu Investimento:");
+    printf("\n1- Poupança: ");
+    printf("\n2- Fundos de renda fixa: ");
+    scanf("%d", &investimento);
+    printf("\nDigite o valor do investimento: ");
+    scanf("%f", &valor);
+    if (investimento == 1)
+    {
+        resultado = valor + (valor*0.3);
+        printf("\nO valor do investimento após 1 mês é de: %.2f", resultado);
+    }
+    if (investimento == 2)
+    {
+        resultado = valor + (valor*0.4);
+        printf("\nO valor do investimento após 1 mês é de: %.2f", resultado);
+    }
+    return 0;
+}
+```
+
+## Exercício 16:
 ```c
 #include <stdio.h>
 int main () {
     float preco, precofinal;
-    printf("Digite o valor do produto: ");
+    printf("Digite o valor atual do produto: ");
     scanf("%f", &preco);
-    precofinal = preco - (preco*0.1);
-    printf("O valor após o desconto é de: %.2f\n", precofinal);
-    return 0;
-}
-```
-
-### Exercício 6:
-```c
-#include <stdio.h>
-int main () {
-    float salario, comissao, resultado;
-    printf("Digite o seu salário: ");
-    scanf("%f", &salario);
-    printf("Digite o valor das vendas: ");
-    scanf("%f", &comissao);
-    resultado = salario + (comissao*0.4);
-    printf("O salario final é de %0.2f", resultado);
-    return 0;
-}
-```
-
-### Exercício 7:
-```c
-#include <stdio.h>
-int main () {
-    float peso, pesoengordar, pesoemaagrecer;
-    printf("Digite seu peso: ");
-    scanf("%f", &peso);
-    pesoengordar = peso + (peso*0.15);
-    printf("O seu peso final se vc engordar 15% é de: %0.2f\n", pesoengordar);
-    pesoemaagrecer = peso - (peso*0.2);
-    printf("O seu peso final se vc emagrecer 20% é de: %0.2f\n", pesoemaagrecer);
-    return 0;
-}
-```
-
-### Exercício 8:
-```c
-#include <stdio.h>
-int main () {
-    float pesoemkg, pesoemgramas;
-    printf("Digite seu peso em kilogramas(KG): ");
-    scanf("%f", &pesoemkg);
-    pesoemgramas = pesoemkg * 1000;
-    printf("O seu peso em gramas é: %.2f gramas\n", pesoemgramas);
-    return 0;
-}
-```
-
-### Exercício 9:
-```c
-#include <stdio.h>
-int main () {
-    float basemenor, basemaior, altura, resultado;
-    printf("Digite o valor da base menor do trapésio: ");
-    scanf("%f", &basemenor);
-    printf("Digite o valor da base maior do trapésio: ");
-    scanf("%f", &basemaior);
-    printf("Digite o valor da altura do trapésio: ");
-    scanf("%f", &altura);
-    resultado = ((basemaior + basemenor) * altura) / 2;
-    printf("A área do trapésio é de: %0.2f\n", resultado);
-    return 0;
-
-}
-```
-
-### Exercício 10:
-```c
-#include <stdio.h>
-int main () {
-    float lado, resultado;
-    printf("Digite o valor dos lados do quadradado: ");
-    scanf("%f", &lado);
-    resultado = lado * lado;
-    printf("A área do quadrado será de: %0.2f\n", resultado);
-    return 0;
-}
-```
-
-### Exercício 11:
-```c
-#include <stdio.h>
-int main () {
-    float diagonalmaior, diagonalmenor, resultado;
-    printf("Digite o valor da diagonal maior do losango: ");
-    scanf("%f", &diagonalmaior);
-    printf("Digite o valor da diagonal menor do losango: ");
-    scanf("%f", &diagonalmenor);
-    resultado = (diagonalmaior*diagonalmenor)/2;
-    printf("A área do losango será de: %0.2f\n", resultado);
-    return 0;
-}
-```
-
-### Exercício 12:
-```c
-#include <stdio.h>
-int main () {
-    float salariominimo, salario, total;
-    salariominimo = 1000;
-    printf("Digite o seu salário: ");
-    scanf("%f", &salario);
-    total = salario / salariominimo;
-    printf("Você recebe %0.2f salários minímos.", total);
-    return 0;
-}
-```
-
-### Exercício 13:
-```c
-#include <stdio.h>
-int main () {
-    int n1, i;
-    printf("Digite o número desejado: ");
-    scanf("%d", &n1);
-    printf("\nTabuada do %d:\n", n1);
-    for (i = 0; i <= 10; i++) {
-        printf("%d x %d = %d\n", n1, i, n1 * i);
+    if (preco <= 30)
+    {
+        precofinal = preco;
+        printf("O preço final é de: %.2f", &precofinal);
+    }
+    else if (preco > 30 && preco < 100)
+    {
+        precofinal = preco - (preco*0.1);
+        printf("O preço final é de: %.2f", precofinal);
+    }
+    else if (preco > 100)
+    {
+        precofinal = preco - (preco*0.15);
+        printf("O preço final é de: %.2f", precofinal);
     }
     return 0;
 }
 ```
 
-### Exercício 14:
+## Exercício 17:
 ```c
 #include <stdio.h>
 int main () {
-    float idade, meses, dias, semanas;
+    float senha, senhareal;
+    printf("Digite a senha: ");
+    scanf("%f", &senha);
+    if (senha == 4531)
+    {
+        printf("Senha correta!");
+    }
+    else {
+        printf("Senha incorreta!");
+    }
+    return 0;
+}
+```
+
+## Exercício 18:
+```c
+#include <stdio.h>
+int main () {
+    float idade;
     printf("Digite sua idade: ");
     scanf("%f", &idade);
-    printf("Você tem %0.2f anos\n", idade);
-    meses = idade * 12;
-    printf("Você tem %0.2f meses\n", meses);
-    dias = idade * 365;
-    printf("Você tem %0.2f dias\n", dias);
-    semanas = dias / 7;
-    printf("Você tem %0.2f semanas\n", semanas);
+    if (idade >= 18)
+    {
+        printf("Você é maior de idade!");
+    }
+    else {
+        printf("Você não é maior de idade.");
+    }
     return 0;
-
 }
 ```
 
-### Exercício 15:
+## Exercício 19:
 ```c
 #include <stdio.h>
 int main () {
-    float salariojoao, multa1, multa2, salariofinal;
-    printf("Digite o salário de João: ");
-    scanf("%f", &salariojoao);
-    printf("Digite o valor das multas: ");
-    scanf("%f", &multa1);
-    scanf("%f", &multa2);
-    salariofinal = salariojoao - (multa1 + (multa1*0.02)) - (multa2 + (multa2*0.02));
-    printf("O salário final de João vai ser de: %0.2f reais", salariofinal);
+    float altura, peso;
+    char sexo;
+    printf("Digite a sua altura em metros: ");
+    scanf("%f", &altura);
+    printf("Escolha seu sexo: h (Homem) ou m (Mulher): ");
+    scanf(" %c", &sexo);
+    if (sexo == 'h')
+    {
+        peso = (72.7 * altura) - 58;
+        printf("O seu peso ideal é de: %.2f kg", peso);
+    }
+    else if (sexo == 'm')
+    {
+        peso = (62.1 * altura) - 44.7;
+        printf("O seu peso ideal é de: %.2f kg", peso);
+    }
+    else {
+        printf("Sexo inválido. Digite 'h' para homem ou 'm' para mulher.\n");
+    }
     return 0;
 }
 ```
 
-### Exercício 16:
-```c
-#include <stdio.h>
-#include <math.h>
-int main () {
-    float cateto1, cateto2, hipotenusa;
-    printf("Digite o valor do primeiro cateto: ");
-    scanf("%f", &cateto1);
-    printf("Digite o valora do segundo cateto: ");
-    scanf("%f", &cateto2);
-    hipotenusa = sqrt((cateto1 * cateto1) + (cateto2 * cateto2));
-    printf("A hipotenusa é: %.2f\n", hipotenusa);
-    return 0;
-}
-```
-
-### Exercício 17:
+## Exercício 20:
 ```c
 #include <stdio.h>
 int main () {
-    float raio, comprimento, area, volume;
-    printf("Digite o valor do raio: ");
-    scanf("%f", &raio);
-    comprimento = 2 * 3.14 * raio;
-    printf("O comprimento da esfera é de: %0.2f\n ", comprimento);
-    area = 3.14 * (raio * raio);
-    printf("A área da esfera é de: %0.2f\n", area);
-    volume = 1/4 * 3.14 * raio;
-    printf("O volume da esfera é de: %0.2f\n ", volume);
+    int idade;
+    printf("Digite a idade do nadador: ");
+    scanf("%d", &idade);
+    if (idade < 5)
+    {
+        printf("O nadador não tem idade para nenhuma categoria.");
+    }
+    else if (idade > 5 && idade <= 7)
+    {
+        printf("O nadador é da categoria Infantil");
+    }
+    else if (idade > 8 && idade <= 10)
+    {
+        printf("O nadador é da categoria Juvenil");
+    }
+    else if (idade > 11 && idade <= 15)
+    {
+        printf("O nadador é da categoria Adolescente");
+    }
+    else if (idade > 16 && idade <= 30)
+    {
+        printf("O nadador é da categoria Adulto");
+    }
+    else if (idade > 30)
+    {
+        printf("O nadador é da categoria Sênior");
+    }
     return 0;
 }
 ```
 
-### Exercício 18:
+## Exercício 21:
 ```c
 #include <stdio.h>
 int main () {
-    float celsius, fahrenheit;
-    printf("Digite a temperatura em Celsius: ");
-    scanf("%f", &celsius);
-    fahrenheit = 180*(celsius+32)/100;
-    printf("A temperatura digitada em Fahrenheit é: %0.2f", fahrenheit);
+    float preco;
+    int codigo;
+    printf("Digite o preço do produto: ");
+    scanf("%f", &preco);
+    printf("Digite o código de origem do produto: ");
+    scanf("%d", &codigo);
+    printf("Preço do produto: R$ %.2f\n", preco);
+    if (codigo == 1) {
+        printf("Procedência: Sul\n");
+    }
+    else if (codigo == 2) {
+        printf("Procedência: Norte\n");
+    }
+    else if (codigo == 3) {
+        printf("Procedência: Leste\n");
+    }
+    else if (codigo == 4) {
+        printf("Procedência: Oeste\n");
+    }
+    else if (codigo == 5 || codigo == 6) {
+        printf("Procedência: Nordeste\n");
+    }
+    else if (codigo == 7 || codigo == 8 || codigo == 9) {
+        printf("Procedência: Sudeste\n");
+    }
+    else if (codigo >= 10 && codigo <= 20) {
+        printf("Procedência: Centro-Oeste\n");
+    }
+    else if (codigo >= 21 && codigo <= 30) {
+        printf("Procedência: Nordeste\n");
+    }
+    else {
+        printf("Código de origem inválido!\n");
+    }
     return 0;
 }
 ```
 
-### Exercício 19:
+## Exercício 22:
 ```c
 #include <stdio.h>
-int main () {
-    float medida1, medida2, area, iluminacao;
-    printf("Digite a primeira medida do cômodo: ");
-    scanf("%f", &medida1);
-    printf("Digite a segunda medida do cômodo: ");
-    scanf("%f", &medida2);
-    area = medida1 * medida2;
-    printf("\nA área do cômodo é de: %0.2f metros", area);
-    iluminacao = area * 18;
-    printf("\nDevera ser ultizada %0.2f W de potência", iluminacao);
-    return 0;
-
-}
-```
-
-### Exercício 20:
-```c
-#include <stdio.h>
-#include <math.h>
 int main() {
-    float angulo, distancia, medida_escada;
-    printf("Digite o ângulo em graus entre a escada e o chão: ");
-    scanf("%f", &angulo);
-    printf("Digite a distância da escada até a parede (em metros): ");
-    scanf("%f", &distancia);
-    float radianos = angulo * (3.14 / 180);
-     medida_escada = distancia / cos(radianos);
-     printf("A medida da escada deve ser: %.2f metros\n", medida_escada);
-     return 0;
-}
-```
-
-### Exercício 21:
-```c
-#include <stdio.h>
-int main () {
-    float horastrabalhadas, salariominimo, horasextras, resultadoa, resultadob, salariobruto, quantia, salario;
-    salariominimo = 1000;
-    printf("Digite as horas trabalhadas: ");
-    scanf("%f", &horastrabalhadas);
-    printf("Digite as horas extras trabalhadas: ");
-    scanf("%f", &horasextras);
-    resultadoa = horastrabalhadas = (salariominimo*1/8);
-    printf("\nO resultado é de: %0.2f", resultadoa);
-    resultadob = horasextras = (salariominimo*1/4);
-    printf("\nO resultado é de: %0.2f", resultadob);
-    salariobruto = horastrabalhadas * resultadoa;
-    printf("\nO salário bruto é de: %0.2f", salariobruto);
-    quantia = horastrabalhadas * resultadob;
-    printf("\nA quantia a receber é de: %0.2f reais", quantia);
-    salario = salariobruto + quantia;
-    printf("\nO salário a receber é de: %0.2f reais", salario);
-    return 0;
-
-}
-```
-
-### Exercício 22:
-```c
-#include <stdio.h>
-int main () {
-    float N, Nd;
-    printf("Digite o número de lados do polígono convexo: ");
-    scanf("%f", &N);
-    Nd = N * (N-3)/2;
-    printf("O número de diagonais é de: %0.2f", Nd);
+    int idade;
+    float peso;
+    printf("Digite a idade da pessoa: ");
+    scanf("%d", &idade);
+    printf("Digite o peso da pessoa: ");
+    scanf("%f", &peso);
+    int grupo;
+    if (idade < 20) {
+        if (peso <= 60)
+            grupo = 9;
+        else if (peso <= 90)
+            grupo = 8;
+        else
+            grupo = 7;
+    }
+    else if (idade <= 50) {
+        if (peso <= 60)
+            grupo = 6;
+        else if (peso <= 90)
+            grupo = 5;
+        else
+            grupo = 4;
+    }
+    else {
+        if (peso <= 60)
+            grupo = 3;
+        else if (peso <= 90)
+            grupo = 2;
+        else
+            grupo = 1;
+    }
+    printf("Grupo de risco: %d\n", grupo);
     return 0;
 }
 ```
 
-### Exercício 23:
+## Exercício 23:
 ```c
 #include <stdio.h>
-int main () {
-    float angulo1, angulo2, angulo3;
-    printf("Digite o valor do primeiro angulo: ");
-    scanf("%f", &angulo1);
-    printf("Digite o valor do segundo angulo: ");
-    scanf("%f", &angulo2);
-    angulo3 = 180 - (angulo1+angulo2);
-    printf("O valor do terceiro angulo é de: %0.2f", angulo3);
-    return 0;
-
-}
-```
-
-### Exercício 24:
-```c
-#include <stdio.h>
-int main () {
-    float reais, dolar, marco, libra;
-    printf("Digite o valor em reais (R$): ");
-    scanf("%f", &reais);
-    dolar = reais / 1.80;
-    marco = reais / 2.00;
-    libra = reais / 3.57;
-    printf("\nCom R$ %.2f você pode comprar:\n", reais);
-    printf("-> %.2f dólares\n", dolar);
-    printf("-> %.2f marcos alemães\n", marco);
-    printf("-> %.2f libras esterlinas\n", libra);
-    return 0;
-}
-```
-
-### Exercício 25:
-```c
 int main() {
-    int hora, minutos, total_minutos, total_segundos;
-    printf("Digite a hora: ");
-    scanf("%d", &hora);
-    printf("Digite os minutos: ");
-    scanf("%d", &minutos);
-    int hora_em_minutos = hora * 60;
-    total_minutos = hora_em_minutos + minutos;
-    total_segundos = total_minutos * 60;
-    printf("\nA hora digitada em minutos: %d\n", hora_em_minutos);
-    printf("Total de minutos: %d\n", total_minutos);
-    printf("Total em segundos: %d\n", total_segundos);
+    int codigo, quantidade;
+    float preco_unitario, preco_total, desconto, preco_final;
+    printf("Digite o código do produto: ");
+    scanf("%d", &codigo);
+    printf("Digite a quantidade comprada: ");
+    scanf("%d", &quantidade);
+    if (codigo >= 1 && codigo <= 10)
+        preco_unitario = 10.0;
+    else if (codigo >= 11 && codigo <= 20)
+        preco_unitario = 15.0;
+    else if (codigo >= 21 && codigo <= 30)
+        preco_unitario = 20.0;
+    else if (codigo >= 31 && codigo <= 40)
+        preco_unitario = 30.0;
+    else {
+        printf("Código de produto inválido!\n");
+        return 1;
+    }
+    preco_total = preco_unitario * quantidade;
+    if (preco_total <= 250)
+        desconto = preco_total * 0.05;
+    else if (preco_total <= 500)
+        desconto = preco_total * 0.10;
+    else
+        desconto = preco_total * 0.15;
+
+    preco_final = preco_total - desconto;
+    printf("Preço unitário: R$ %.2f\n", preco_unitario);
+    printf("Preço total: R$ %.2f\n", preco_total);
+    printf("Desconto: R$ %.2f\n", desconto);
+    printf("Preço final com desconto: R$ %.2f\n", preco_final);
+    return 0;
+}
+```
+
+## Exercício 24:
+```c
+#include <stdio.h>
+int main() {
+    float preco, aumento = 0, imposto, novoPreco;
+    int categoria;
+    char situacao;
+    printf("Digite o preco do produto: ");
+    scanf("%f", &preco);
+    printf("Escolha uma opção: (1 - Limpeza, 2 - Alimentacao, 3 - Vestuario): ");
+    scanf("%d", &categoria);
+    printf("Digite a situacao (r - refrigeracao, n - nao refrigeracao): ");
+    scanf(" %c", &situacao);
+    if (preco <= 25) {
+        if (categoria == 1) aumento = preco * 0.05;
+        else if (categoria == 2) aumento = preco * 0.08;
+        else if (categoria == 3) aumento = preco * 0.10;
+    }
+     else {
+        if (categoria == 1) aumento = preco * 0.12;
+        else if (categoria == 2) aumento = preco * 0.15;
+        else if (categoria == 3) aumento = preco * 0.18;
+    }
+    if (categoria == 2 || situacao == 'R') imposto = preco * 0.05;
+    else imposto = preco * 0.08;
+    novoPreco = preco + aumento - imposto;
+    printf("Novo preço: R$ %.2f\n", novoPreco);
+    if (novoPreco <= 50)
+        printf("Classificação: Barato\n");
+    else if (novoPreco <= 120)
+        printf("Classificação: Normal\n");
+    else
+        printf("Classificação: Caro\n");
+    return 0;
+}
+```
+
+## Exercício 25:
+```c
+#include <stdio.h>
+int main() {
+    int horasextras, horasfaltas, H;
+    float premio;
+    printf("Digite o número de minutos de horas extras: ");
+    scanf("%d", &horasextras);
+    printf("Digite o número de minutos de horas faltadas: ");
+    scanf("%d", &horasfaltas);
+    H = horasextras - ((2 * horasfaltas) / 3);
+    if (H >= 2400)
+        premio = 500.00;
+    else if (H >= 1800)
+        premio = 400.00;
+    else if (H >= 1200)
+        premio = 300.00;
+    else if (H >= 600)
+        premio = 200.00;
+    else
+        premio = 100.00;
+    printf("O valor do prêmio é: R$ %.2f\n", premio);
     return 0;
 }
 ```
